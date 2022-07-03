@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaSCript Interview question</title>
+  </head>
+  <body>
+    <!-- <p>
+      // !. Why do you call javascript as dynamic language? Javascript is a
+      dynamic language means data types of the variable can change during run
+      time.
+    </p>
+    <script>
+      var x = 0;
+      x++;
+      x = 'text1';  // string
+      x = true; // boolean
+    </script> -->
+
+    <!-- <p>2. How does Javascript determine data types?</p>
+    <p>
+      Ans:- Javascript determines data types depending on the value assigned
+    </p>
+    <script>
+      var x = 100;
+      var whatisdatatype = typeof x;
+      x = 'SomeString';
+      whatisdatatype = typeof x;
+      x = true;
+      whatisdatatype = typeof x;
+    </script> -->
+
+    <!-- <p>Explain JavaScript Hoisting?</p>
+    <p>
+      Ans:- It's a mechanism where variable and function declaration are moved
+      to the top of the scope.
+    </p>
+
+    <script>
+      console.log(y);
+      var y = 10;
+    </script> -->
+
+    <!-- <p>What are global variables?</p>
+    <p>
+      Ans:- Global variable are accessible through out the webpage or the
+      document.
+    </p>
+
+    <script>
+      var x = 10;
+      function fun1() {
+        console.log(x);
+      }
+      fun1(); // 10
+    </script> -->
+
+    <!-- <h1>What happen when you declare variable without VAR keyword?</h1>
+    <h1>Ans:- Without Var varibale becomes Global.</h1>
+
+    <script>;
+      function func1() {
+        y = 100;
+        console.log(y);
+      }
+      func1();
+      console.log(y); // this become global 
+    </script> -->
+
+    <!-- <h4>What is the use of "Use Strict"?</h4>
+    <h2>
+      Ans:- "Use Strict" strictly checks if the variable is defined using "var"
+      keyword.
+    </h2>
+    <script>
+      'use strict';
+      var x = 10;
+      function func1() {
+        y = 100;
+        console.log(x);
+      }
+      func1();
+      console.log(y);
+    </script> -->
+
+    <!-- <h3>
+      //Can we Avoid global variables? 
+       Ans:- Its difficult to avoid global variables. But we can organize it properly by doing two things:-
+       1.Put global variable in a proper Namespace.
+        Module pattern using Closures and IIFE.
+    </h3>
+    <script>
+      var global = {};
+      global.connectionString = 'Test';
+      global.logDir = 'd:\Logs';
+      //console.log(global) // {connectionString: 'Test', logDir: 'd:Logs'}
+
+      var myGlobal = (function () {
+        var connectionString = 'Test';
+        function GetConnection() {
+          return connectionString;
+        }
+        return { GetConnection };
+      })();
+
+      var str = myGlobal.GetConnection();
+      console.log(str)
+    </script> -->
+
+    <!-- <h3>
+      // What are Closures? 
+      // Ans:- Closures are functions inside function and it makes a normal function statefull.
+    </h3>
+
+    <script>
+      function simpleFunction() {
+        var x = 0;
+        x++; 
+      }
+
+      function ClosureFunction() {
+        var x = 0;
+        function Increment() {
+          x++;
+        }
+        return {
+          Increment,
+        };
+      }
+
+      simpleFunction();
+      simpleFunction();
+
+      var ref = ClosureFunction();
+      ref.Increment();
+      ref.Increment();
+    </script> -->
+
+    <!-- <h3>
+      20. Explain IIFE? //Immediatetely Invoked Function Expression;
+      Ans- It's an anonymous function which gets immediately invoked. any variable created
+      inside IIFE, it's local to IIFE.
+    </h3>
+    <script>
+      var x = 0;
+      (function () {
+        var y = 10;
+        alert('I am IIFE and I will execute once when called');
+      })();
+      alert(y);
+    </script> -->
+
+    <!-- <h3>
+      // What is name collision in global scope?
+       Ans:- Name collision happens when same name function and variable are declared.
+    </h3> 
+
+     <script>
+      function Init() {
+        var x = 0;
+      }
+      var Init = 0;
+      <!-- Init(); //--->// throw error it became variable. -->
+
+    <!-- // IIFE solve the collision problem. -->
+    <!-- var Init = 0; -->
+    <!-- (function () {
+        // Init()
+      })();  -->
+    <!-- </script>  -->
+    -->
+
+    <!-- <h2>
+      Explain Let keyword? Ans:- "Let" helps you to create immediately block
+      level local scope.
+    </h2>
+
+    <script>
+      function Test() {
+        let x = 10;
+        if (x == 10) {
+          let x = 2;
+          console.log(x);
+        }
+        console.log(x);
+      }
+      Test();
+    </script> -->
+
+    <!-- <h4>
+      Are Let variables hoisted? Ans:- Yes ther are hoisted but not initialized.
+      so, if you try to access the variables you will get an uninitialized
+      error.
+    </h4>
+    <script>
+      console.log(y); // undefined because with var, function before code execute hoisted at the top.
+      console.log(x); // Uncaught ReferenceError; Connot access 'X' before initiazation;
+      let x = 10;
+      var y = 10;
+    </script> -->
+
+    <!-- <h2>Explain Temporal Dead Zone</h2>
+    <h3>
+      Ans:-TDZone is a period or it's a state of a variable where variable are
+      named in memory but they are not initialized with any value.
+    </h3>
+    <script>
+      // This is temporal Dead Zone
+      console.log(x); // Error
+      // This is temporal Dead Zone
+      // This is temporal Dead Zone
+      console.log(x); // Error of Temporal dead zone
+      // This is temporal Dead Zone
+      let x = 10;
+      function Test() {
+        // This is temporal Dead Zone
+        console.log(y); // Error
+        // This is temporal Dead Zone
+        // This is temporal Dead Zone
+        let y = 10;
+      }
+      Test();
+    </script> -->
+
+    <h2>Let Vs Var</h2>
+    <h2>
+      Var Scope:- Scoped to the Immediatete function body. Initialized value:-
+      Value initialized with Undefined.
+    </h2>
+    <h2>
+      Let Scope :- Scoped to the immediate enclosing block. Initialized value:-
+      Value initialized with nothing.
+    </h2>
+    <script>
+      function Test() {
+        if (1 == 1) {
+          // Here both the value are hoisted but with let not initialies.
+          let y = 10;
+          var x = 10;
+        }
+        console.log(x);
+        console.log(y);
+      }
+    </script>
+
+    <h2>Tricky Question</h2>
+    <script>
+      var d = '10';
+      var d1 = '10';
+      console.log(d + d1); // "1010"
+      var i = 10;
+      var i1 = 10;
+      console.log(i + i1);
+
+      console.log(1 + 1 + '4'); // 24
+      var x = 1 + 1 + '3';
+      console.log(typeOf.x);
+    </script>
+  </body>
+</html>
